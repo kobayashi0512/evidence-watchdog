@@ -1,0 +1,49 @@
+{
+  "title": "Rare Variants Create Synthetic Genome-Wide Associations",
+  "query": "1,000 genomes project enables mapping of genetic sequence variation consisting of rare variants with larger penetrance effects than common variants.",
+  "model": "applications/oncology_trial_matching/models/bge-reranker-v2-m3",
+  "backend": "reranker",
+  "budget": 4,
+  "short_view_size": 2,
+  "top_evidence": [
+    {
+      "rank": 1,
+      "passage_index": 7,
+      "score": -2.0111899375915527,
+      "outside_short_view": true,
+      "caution_cues": [],
+      "text": "In conclusion, uncommon or rare genetic variants can easily create synthetic associations that are credited to common variants, and this possibility requires careful consideration in the interpretation and follow up of GWAS signals."
+    },
+    {
+      "rank": 2,
+      "passage_index": 2,
+      "score": -3.369659662246704,
+      "outside_short_view": true,
+      "caution_cues": [],
+      "text": "We propose as an alternative explanation that variants much less common than the associated one may create \"synthetic associations\" by occurring, stochastically, more often in association with one of the alleles at the common site versus the other allele."
+    },
+    {
+      "rank": 3,
+      "passage_index": 0,
+      "score": -4.4996442794799805,
+      "outside_short_view": false,
+      "caution_cues": [],
+      "text": "Genome-wide association studies (GWAS) have now identified at least 2,000 common variants that appear associated with common diseases or related traits (http://www.genome.gov/gwastudies), hundreds of which have been convincingly replicated."
+    },
+    {
+      "rank": 4,
+      "passage_index": 6,
+      "score": -4.7360687255859375,
+      "outside_short_view": true,
+      "caution_cues": [],
+      "text": "We also illustrate the behavior of synthetic associations in real datasets by showing that rare causal mutations responsible for both hearing loss and sickle cell anemia create genome-wide significant synthetic associations, in the latter case extending over a 2.5-Mb interval encompassing scores of \"blocks\" of associated variants."
+    }
+  ],
+  "watchdog": {
+    "review_required": true,
+    "reasons": [
+      "高相关证据位于默认短视图之外，应回看原文。"
+    ],
+    "scope": "Evidence-position and caution-cue flag only; not a truth, causality, quality, or clinical assessment."
+  }
+}

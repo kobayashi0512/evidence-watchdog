@@ -1,0 +1,8 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+data/
+models/bge-reranker-v2-m3/
+models/all-MiniLM-L6-v2/
+outputs/

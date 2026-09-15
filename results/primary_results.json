@@ -1,0 +1,493 @@
+{
+  "protocol": {
+    "bootstrap": "paired cluster percentile bootstrap, 20000 repetitions, seed 20260907; observation-weighted point estimates",
+    "BM25": "document-local df, k1=1.5, b=0.75, log(1+(N-df+0.5)/(df+0.5)), identical token filters; retrospective reference, not tuned",
+    "status": "retrospective manuscript audit; no new model training or confirmatory test"
+  },
+  "summaries": {
+    "qasper_dev": {
+      "n": 89,
+      "groups": 75,
+      "means": {
+        "abstract_evidence_f1": 0.1551132150978762,
+        "lead2_evidence_f1": 0.1284383554338701,
+        "semantic2_evidence_f1": 0.44060440167701276,
+        "semantic4_evidence_f1": 0.5616977884156611,
+        "semantic_top1_max_evidence_f1": 0.3509998096679077,
+        "lexical2_evidence_f1": 0.27000778739499554,
+        "lexical4_evidence_f1": 0.4144461338623752,
+        "bm252_evidence_f1": 0.28501158718261044,
+        "bm254_evidence_f1": 0.39639841038556123,
+        "lead4_evidence_f1": 0.2222920138243477,
+        "oracle_evidence_f1": 0.8753854225077092
+      },
+      "exact_gold_available": 71,
+      "multiple_annotations": 75,
+      "n_paragraphs_mean": 45.853932584269664
+    },
+    "qasper_train": {
+      "n": 317,
+      "groups": 258,
+      "means": {
+        "abstract_evidence_f1": 0.14348432796724206,
+        "lead2_evidence_f1": 0.15365521680701227,
+        "semantic2_evidence_f1": 0.4362626619093817,
+        "semantic4_evidence_f1": 0.5812180032470705,
+        "semantic_top1_max_evidence_f1": 0.3442764631360889,
+        "lexical2_evidence_f1": 0.3469838670045943,
+        "lexical4_evidence_f1": 0.45350139891911523,
+        "bm252_evidence_f1": 0.34337518386193316,
+        "bm254_evidence_f1": 0.45941987376777127,
+        "lead4_evidence_f1": 0.24711182160542366,
+        "oracle_evidence_f1": 0.9363763176023653
+      },
+      "exact_gold_available": 283,
+      "multiple_annotations": 11,
+      "n_paragraphs_mean": 53.83280757097792
+    },
+    "scifact_dev": {
+      "n": 338,
+      "groups": 188,
+      "documents": 182,
+      "means": {
+        "lead1_recall": 0.03353057199211045,
+        "lead2_recall": 0.08826429980276133,
+        "lexical2_recall": 0.43688362919132145,
+        "lexical4_recall": 0.6563116370808678,
+        "semantic2_recall": 0.5626232741617357,
+        "semantic4_recall": 0.7879684418145956,
+        "lead2_complete": 0.08284023668639054,
+        "lexical2_complete": 0.42011834319526625,
+        "lexical4_complete": 0.636094674556213,
+        "semantic2_complete": 0.5384615384615384,
+        "semantic4_complete": 0.772189349112426,
+        "bm252_recall": 0.4605522682445759,
+        "bm252_complete": 0.4437869822485207,
+        "random2_recall": 0.22722132433061773,
+        "bm254_recall": 0.6632149901380671,
+        "bm254_complete": 0.6420118343195266,
+        "random4_recall": 0.4524702620734643,
+        "lead4_recall": 0.2785996055226824,
+        "lead4_complete": 0.26627218934911245
+      },
+      "n_sentences_mean": 10.789940828402367
+    },
+    "scifact_train": {
+      "n": 957,
+      "groups": 505,
+      "documents": 365,
+      "means": {
+        "lead1_recall": 0.041100661790316954,
+        "lead2_recall": 0.09543712991988854,
+        "lexical2_recall": 0.40273423894113547,
+        "lexical4_recall": 0.63662486938349,
+        "semantic2_recall": 0.5774991292232671,
+        "semantic4_recall": 0.7774294670846394,
+        "lead2_complete": 0.09195402298850575,
+        "lexical2_complete": 0.3887147335423197,
+        "lexical4_complete": 0.625914315569488,
+        "semantic2_complete": 0.5569487983281086,
+        "semantic4_complete": 0.7648902821316614,
+        "bm252_recall": 0.4386102403343783,
+        "bm252_complete": 0.4211076280041797,
+        "random2_recall": 0.23463974032235918,
+        "bm254_recall": 0.6632706374085684,
+        "bm254_complete": 0.6509926854754441,
+        "random4_recall": 0.46893116995158013,
+        "lead4_recall": 0.28230581678857536,
+        "lead4_complete": 0.2769070010449321
+      },
+      "n_sentences_mean": 10.147335423197493
+    }
+  },
+  "contrasts": [
+    {
+      "dataset": "qasper",
+      "model": "BGE",
+      "baseline": "lexical",
+      "k": 2,
+      "delta": 0.17059661428201714,
+      "ci": [
+        0.09694515396365522,
+        0.24546081045155727
+      ],
+      "cluster": "paper_id",
+      "n_clusters": 75
+    },
+    {
+      "dataset": "qasper",
+      "model": "BGE",
+      "baseline": "lexical",
+      "k": 4,
+      "delta": 0.14725165455328595,
+      "ci": [
+        0.06741106793058914,
+        0.22820378585191956
+      ],
+      "cluster": "paper_id",
+      "n_clusters": 75
+    },
+    {
+      "dataset": "qasper",
+      "model": "BGE",
+      "baseline": "bm25",
+      "k": 2,
+      "delta": 0.15559281449440227,
+      "ci": [
+        0.08415752452313342,
+        0.2296987993416266
+      ],
+      "cluster": "paper_id",
+      "n_clusters": 75
+    },
+    {
+      "dataset": "qasper",
+      "model": "BGE",
+      "baseline": "bm25",
+      "k": 4,
+      "delta": 0.16529937803009986,
+      "ci": [
+        0.08314713163427163,
+        0.25008087873878126
+      ],
+      "cluster": "paper_id",
+      "n_clusters": 75
+    },
+    {
+      "dataset": "qasper",
+      "model": "MiniLM",
+      "baseline": "lexical",
+      "k": 2,
+      "delta": 0.05598019525857507,
+      "ci": [
+        -0.029591679405958513,
+        0.1443942396958404
+      ],
+      "cluster": "paper_id",
+      "n_clusters": 75
+    },
+    {
+      "dataset": "qasper",
+      "model": "MiniLM",
+      "baseline": "lexical",
+      "k": 4,
+      "delta": 0.01555971777121172,
+      "ci": [
+        -0.06293948175855167,
+        0.09591646977819461
+      ],
+      "cluster": "paper_id",
+      "n_clusters": 75
+    },
+    {
+      "dataset": "qasper",
+      "model": "MiniLM",
+      "baseline": "bm25",
+      "k": 2,
+      "delta": 0.04097639547096022,
+      "ci": [
+        -0.023431048148043428,
+        0.10919532769292838
+      ],
+      "cluster": "paper_id",
+      "n_clusters": 75
+    },
+    {
+      "dataset": "qasper",
+      "model": "MiniLM",
+      "baseline": "bm25",
+      "k": 4,
+      "delta": 0.03360744124802562,
+      "ci": [
+        -0.027452752450976264,
+        0.09713271179720519
+      ],
+      "cluster": "paper_id",
+      "n_clusters": 75
+    },
+    {
+      "dataset": "scifact",
+      "model": "BGE",
+      "baseline": "lexical",
+      "k": 2,
+      "delta": 0.1257396449704142,
+      "ci": [
+        0.08463115939932295,
+        0.16766199215403346
+      ],
+      "cluster": "claim_id",
+      "n_clusters": 188
+    },
+    {
+      "dataset": "scifact",
+      "model": "BGE",
+      "baseline": "lexical",
+      "k": 4,
+      "delta": 0.13165680473372782,
+      "ci": [
+        0.08950549000327761,
+        0.17418250588561138
+      ],
+      "cluster": "claim_id",
+      "n_clusters": 188
+    },
+    {
+      "dataset": "scifact",
+      "model": "BGE",
+      "baseline": "bm25",
+      "k": 2,
+      "delta": 0.10207100591715976,
+      "ci": [
+        0.05738502503190341,
+        0.1455264032573019
+      ],
+      "cluster": "claim_id",
+      "n_clusters": 188
+    },
+    {
+      "dataset": "scifact",
+      "model": "BGE",
+      "baseline": "bm25",
+      "k": 4,
+      "delta": 0.12475345167652861,
+      "ci": [
+        0.07791537667698659,
+        0.1714537510423359
+      ],
+      "cluster": "claim_id",
+      "n_clusters": 188
+    },
+    {
+      "dataset": "scifact",
+      "model": "MiniLM",
+      "baseline": "lexical",
+      "k": 2,
+      "delta": 0.043885601577909265,
+      "ci": [
+        -0.005883143580012649,
+        0.09307992202729044
+      ],
+      "cluster": "claim_id",
+      "n_clusters": 188
+    },
+    {
+      "dataset": "scifact",
+      "model": "MiniLM",
+      "baseline": "lexical",
+      "k": 4,
+      "delta": 0.06903353057199212,
+      "ci": [
+        0.02202178593688028,
+        0.11579079911316742
+      ],
+      "cluster": "claim_id",
+      "n_clusters": 188
+    },
+    {
+      "dataset": "scifact",
+      "model": "MiniLM",
+      "baseline": "bm25",
+      "k": 2,
+      "delta": 0.02021696252465483,
+      "ci": [
+        -0.028230410033871896,
+        0.0677816709367259
+      ],
+      "cluster": "claim_id",
+      "n_clusters": 188
+    },
+    {
+      "dataset": "scifact",
+      "model": "MiniLM",
+      "baseline": "bm25",
+      "k": 4,
+      "delta": 0.0621301775147929,
+      "ci": [
+        0.011374595360129486,
+        0.11178247734138973
+      ],
+      "cluster": "claim_id",
+      "n_clusters": 188
+    }
+  ],
+  "recovery": {
+    "n": 338,
+    "lead2_complete": 28,
+    "lead2_missing": 310,
+    "lexical2_complete": {
+      "complete": 142,
+      "rescued": 118,
+      "lost": 4
+    },
+    "lexical4_complete": {
+      "complete": 215,
+      "rescued": 189,
+      "lost": 2
+    },
+    "bm252_complete": {
+      "complete": 150,
+      "rescued": 128,
+      "lost": 6
+    },
+    "bm254_complete": {
+      "complete": 217,
+      "rescued": 192,
+      "lost": 3
+    },
+    "semantic2_complete": {
+      "complete": 182,
+      "rescued": 161,
+      "lost": 7
+    },
+    "semantic4_complete": {
+      "complete": 261,
+      "rescued": 234,
+      "lost": 1
+    }
+  },
+  "position": [
+    {
+      "bin": "前段",
+      "n": 30,
+      "lead2_recall": 0.7666666666666667,
+      "lead4_recall": 0.8666666666666667,
+      "lexical4_recall": 0.8,
+      "bm254_recall": 0.8333333333333334,
+      "semantic2_recall": 0.6333333333333333,
+      "semantic4_recall": 0.8666666666666667
+    },
+    {
+      "bin": "中段",
+      "n": 123,
+      "lead2_recall": 0.05555555555555555,
+      "lead4_recall": 0.47289972899728994,
+      "lexical4_recall": 0.7046070460704607,
+      "bm254_recall": 0.6639566395663956,
+      "semantic2_recall": 0.6124661246612467,
+      "semantic4_recall": 0.7872628726287264
+    },
+    {
+      "bin": "后段",
+      "n": 185,
+      "lead2_recall": 0.0,
+      "lead4_recall": 0.05405405405405406,
+      "lexical4_recall": 0.6009009009009009,
+      "bm254_recall": 0.6351351351351351,
+      "semantic2_recall": 0.518018018018018,
+      "semantic4_recall": 0.7756756756756756
+    }
+  ],
+  "labels": [
+    {
+      "model": "BGE",
+      "label": "SUPPORT",
+      "n": 216,
+      "recall4": 0.8194444444444444
+    },
+    {
+      "model": "BGE",
+      "label": "CONTRADICT",
+      "n": 122,
+      "recall4": 0.73224043715847
+    },
+    {
+      "model": "MiniLM",
+      "label": "SUPPORT",
+      "n": 216,
+      "recall4": 0.7260802469135803
+    },
+    {
+      "model": "MiniLM",
+      "label": "CONTRADICT",
+      "n": 122,
+      "recall4": 0.7240437158469946
+    }
+  ],
+  "audit": {
+    "scifact_empty_abstract_sentences": 0,
+    "qasper_paper_overlap_train_dev": 0,
+    "scifact_doc_overlap_train_dev": 110,
+    "source_hashes": {
+      "qasper_semantic_visibility_pilot_all_yesno_dev.json": "5b9f4cf30cd2c27b24ad104dec8c82b1fca15d21df8269b9d575ba074ab5f2eb",
+      "qasper_semantic_visibility_pilot_all_yesno_train.json": "81744e75709493e7cee872b0e809bff90646306acdcf1e0a2f76b4433df19d8b",
+      "qasper_minilm_visibility_all_yesno_dev.json": "616ceb23d7ed225dd6a885ceef1b146d8665ec276893c2b7dfa70a1d95044be2",
+      "scifact_semantic_visibility_pilot_dev.json": "6fa1e1eee47c5aff170b84b0bbf8d0d91115ef50e3c3b5459b4a9055a0d720ee",
+      "scifact_semantic_visibility_pilot_train.json": "6ab09906702f0534a410a7dbfe9d09a27586fc2674eb5027846c62cd6de47f55",
+      "scifact_minilm_visibility_dev.json": "1141325d16d712e1834df86a2ce0bc8372e8aebf4b993e9cc608ca107ca99f0f"
+    }
+  },
+  "examples": [
+    {
+      "dataset": "QASPER",
+      "paper_id": "1608.01884",
+      "question_id": "7fa3c2c0cf7f559d43e84076a9113a390c5ba03a",
+      "question": "Did they collect their own datasets?",
+      "gold": [
+        "A number of the Winograd schemas already published can be “converted” quite easily to this form. Indeed, the above example was constructed in this way; the original form was “Jane knocked on Susan's door, but she did not [answer/get an answer].” Of the 144 schemas in the collection at http://www.cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html there are 33 that can plausibly be translated this way. (#'s 3, 4, 12, 15, 17, 18, 23, 25, 26, 27, 42, 43, 44, 45, 46, 57, 58, 60, 69, 70, 71, 77, 78, 79, 86, 97, 98, 106, 111, 114, 127, 132, 144) — essentially any schema that involves two people as possible referents where the content of the sentences makes sense as applied to groups of people rather than individuals."
+      ],
+      "selected": [
+        {
+          "index0": 14,
+          "text": "Care must be taken to avoid relying on, or seeming to rely on, objectionable stereotypes about men and women. One mechanism that can sometimes be used is to include a potentially problematic sentence in both directions. For instance, schema 23 from the WSC collection can be translated into both “The girls were bullying the boys so we [punished/rescued] them” and “The boys were bullying the girls, so we [punished/rescued] them,” thus avoiding any presupposition of whether girls are more likely to bully boys or vice versa."
+        },
+        {
+          "index0": 12,
+          "text": "A number of the Winograd schemas already published can be “converted” quite easily to this form. Indeed, the above example was constructed in this way; the original form was “Jane knocked on Susan's door, but she did not [answer/get an answer].” Of the 144 schemas in the collection at http://www.cs.nyu.edu/faculty/davise/papers/WinogradSchemas/WSCollection.html there are 33 that can plausibly be translated this way. (#'s 3, 4, 12, 15, 17, 18, 23, 25, 26, 27, 42, 43, 44, 45, 46, 57, 58, 60, 69, 70, 71, 77, 78, 79, 86, 97, 98, 106, 111, 114, 127, 132, 144) — essentially any schema that involves two people as possible referents where the content of the sentences makes sense as applied to groups of people rather than individuals."
+        }
+      ],
+      "scores": {
+        "semantic2_evidence_f1": 1.0,
+        "lexical2_evidence_f1": 0.1111111111111111,
+        "bm252_evidence_f1": 0.1111111111111111
+      }
+    },
+    {
+      "dataset": "QASPER",
+      "paper_id": "1709.05036",
+      "question_id": "50cb50657572e315fd452a89f3e0be465094b66f",
+      "question": "Do they experiment with their proposed model on any other dataset other than MovieQA?",
+      "gold": [
+        "We also applied our model to MCTest dataset which requires machines to answer multiple-choice reading comprehension questions about fictional stories. The original paper describes that a baseline method uses a combination of a sliding window score and a distance based . They achieve 66.7% and 56.7% on MC500 and MC160 separately. Because of the restricted training set and development set, we trained our model on MovieQA training set and applied the result to test MCTest dataset. On MCTest dataset, we still outperform baseline and achieve 68.1% accuracy on MC160 and 61.5% accuracy on MC500."
+      ],
+      "selected": [
+        {
+          "index0": 26,
+          "text": "We also applied our model to MCTest dataset which requires machines to answer multiple-choice reading comprehension questions about fictional stories. The original paper describes that a baseline method uses a combination of a sliding window score and a distance based . They achieve 66.7% and 56.7% on MC500 and MC160 separately. Because of the restricted training set and development set, we trained our model on MovieQA training set and applied the result to test MCTest dataset. On MCTest dataset, we still outperform baseline and achieve 68.1% accuracy on MC160 and 61.5% accuracy on MC500."
+        },
+        {
+          "index0": 35,
+          "text": "The power of the model is verified on MovieQA dataset, which yielded the state of the art result on the dataset. In the future, we are now working on training our model based on our own trained embedding with TF-IDF BIBREF9 weighting. Furthermore, we would like to test our model on open-answer task like SQuaD by seeing the whole corpus as an “answer pool\" and solve it like multiple choice question."
+        }
+      ],
+      "scores": {
+        "semantic2_evidence_f1": 1.0,
+        "lexical2_evidence_f1": 0.14953271028037382,
+        "bm252_evidence_f1": 0.2619047619047619
+      }
+    },
+    {
+      "dataset": "QASPER",
+      "paper_id": "1802.07862",
+      "question_id": "7cd22ca9e107d2b13a7cc94252aaa9007976b338",
+      "question": "Do they inspect their model to see if their model learned to associate image parts with words related to entities?",
+      "gold": [
+        "For the image-aided model (W+C+V; upper row in Figure FIGREF19 ), we confirm that the modality attention successfully attenuates irrelevant signals (selfies, etc.) and amplifies relevant modality-based contexts in prediction of a given token. In the example of “disney word essential = coffee\" with visual tags selfie, phone, person, the modality attention successfully attenuates distracting visual signals and focuses on textual modalities, consequently making correct predictions. The named entities in the examples of “Beautiful night atop The Space Needle\" and “Splash Mountain\" are challenging to predict because they are composed of common nouns (space, needle, splash, mountain), and thus they often need additional contexts to correctly predict. In the training data, visual contexts make stronger indicators for these named entities (space needle, splash mountain), and the modality attention module successfully attends more to stronger signals."
+      ],
+      "selected": [
+        {
+          "index0": 57,
+          "text": "For the image-aided model (W+C+V; upper row in Figure FIGREF19 ), we confirm that the modality attention successfully attenuates irrelevant signals (selfies, etc.) and amplifies relevant modality-based contexts in prediction of a given token. In the example of “disney word essential = coffee\" with visual tags selfie, phone, person, the modality attention successfully attenuates distracting visual signals and focuses on textual modalities, consequently making correct predictions. The named entities in the examples of “Beautiful night atop The Space Needle\" and “Splash Mountain\" are challenging to predict because they are composed of common nouns (space, needle, splash, mountain), and thus they often need additional contexts to correctly predict. In the training data, visual contexts make stronger indicators for these named entities (space needle, splash mountain), and the modality attention module successfully attends more to stronger signals."
+        },
+        {
+          "index0": 55,
+          "text": "Error Analysis: Table TABREF17 shows example cases where incorporation of visual contexts affects prediction of named entities. For example, the token `curry' in the caption “The curry's \" is polysemous and may refer to either a type of food or a famous basketball player `Stephen Curry', and the surrounding textual contexts do not provide enough information to disambiguate it. On the other hand, visual contexts (visual tags: `parade', `urban area', ...) provide similarities to the token's distributional semantics from other training examples (snaps from “NBA Championship Parade Story\"), and thus the model successfully predicts the token as a named entity. Similarly, while the text-only model erroneously predicts `Apple' in the caption “Grandma w dat lit Apple Crisp\" as an organization (Apple Inc.), the visual contexts (describing objects related to food) help disambiguate the token, making the model predict it correctly as a non-named entity (a fruit). Trending entities (musicians or DJs such as `CID', `Duke Dumont', `Marshmello', etc.) are also recognized correctly with strengthened contexts from visual information (describing concert scenes) despite lack of surrounding textual contexts. A few cases where visual contexts harmed the performance mostly include visual tags that are unrelated to a token or its surrounding textual contexts."
+        }
+      ],
+      "scores": {
+        "semantic2_evidence_f1": 1.0,
+        "lexical2_evidence_f1": 0.10344827586206896,
+        "bm252_evidence_f1": 0.14925373134328357
+      }
+    }
+  ]
+}

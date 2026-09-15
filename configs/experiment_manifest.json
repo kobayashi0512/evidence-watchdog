@@ -1,0 +1,32 @@
+{
+  "study": "Evidence Watchdog fixed-budget evidence-visibility audit",
+  "evaluation_scope": "known-document candidate selection; no open-domain retrieval, answer generation, clinical inference, or model fine-tuning",
+  "datasets": {
+    "qasper_development": {
+      "unit": "question within paper",
+      "n_questions": 89,
+      "n_paper_clusters": 75,
+      "metric": "paragraph evidence-matching score",
+      "budgets": [2, 4]
+    },
+    "scifact_development": {
+      "unit": "annotated rationale set",
+      "n_evidence_sets": 338,
+      "n_claim_clusters": 188,
+      "metric": "evidence-sentence recall and complete coverage",
+      "budgets": [2, 4]
+    }
+  },
+  "selectors": ["Lead-k", "lexical overlap", "document-local BM25", "MiniLM bi-encoder", "BGE cross-encoder"],
+  "uncertainty": {
+    "procedure": "percentile paired cluster bootstrap",
+    "resamples": 20000,
+    "seed": 20260907,
+    "point_estimates": "observation-weighted"
+  },
+  "models": {
+    "BGE": "BAAI/bge-reranker-v2-m3",
+    "MiniLM": "sentence-transformers/all-MiniLM-L6-v2",
+    "fine_tuned": false
+  }
+}
