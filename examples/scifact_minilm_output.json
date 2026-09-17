@@ -11,7 +11,7 @@
       "passage_index": 7,
       "score": 0.6357019543647766,
       "outside_short_view": true,
-      "caution_cues": [],
+      "caution_terms": [],
       "text": "In conclusion, uncommon or rare genetic variants can easily create synthetic associations that are credited to common variants, and this possibility requires careful consideration in the interpretation and follow up of GWAS signals."
     },
     {
@@ -19,7 +19,7 @@
       "passage_index": 0,
       "score": 0.6238597631454468,
       "outside_short_view": false,
-      "caution_cues": [],
+      "caution_terms": [],
       "text": "Genome-wide association studies (GWAS) have now identified at least 2,000 common variants that appear associated with common diseases or related traits (http://www.genome.gov/gwastudies), hundreds of which have been convincingly replicated."
     },
     {
@@ -27,7 +27,7 @@
       "passage_index": 2,
       "score": 0.572859525680542,
       "outside_short_view": true,
-      "caution_cues": [],
+      "caution_terms": [],
       "text": "We propose as an alternative explanation that variants much less common than the associated one may create \"synthetic associations\" by occurring, stochastically, more often in association with one of the alleles at the common site versus the other allele."
     },
     {
@@ -35,15 +35,16 @@
       "passage_index": 6,
       "score": 0.5638517141342163,
       "outside_short_view": true,
-      "caution_cues": [],
+      "caution_terms": [],
       "text": "We also illustrate the behavior of synthetic associations in real datasets by showing that rare causal mutations responsible for both hearing loss and sickle cell anemia create genome-wide significant synthetic associations, in the latter case extending over a 2.5-Mb interval encompassing scores of \"blocks\" of associated variants."
     }
   ],
-  "watchdog": {
-    "review_required": true,
-    "reasons": [
-      "高相关证据位于默认短视图之外，应回看原文。"
+  "source_context": {
+    "selected_outside_leading_view": true,
+    "selected_with_caution_language": false,
+    "descriptors": [
+      "Selected material lies outside the leading source view; inspect its surrounding context."
     ],
-    "scope": "Evidence-position and caution-cue flag only; not a truth, causality, quality, or clinical assessment."
+    "scope": "Source-context descriptors identify structural display properties only; they do not predict omissions or assess truth, causality, evidence sufficiency, or study quality."
   }
 }

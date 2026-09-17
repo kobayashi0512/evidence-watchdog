@@ -7,7 +7,7 @@ Each instance already identifies one source document. The selector ranks only th
 - QASPER: full-text paragraphs paired with a question;
 - SciFact: abstract sentences paired with a claim and an annotated evidence document.
 
-This is a known-document evidence-selection experiment, not open-domain retrieval, answer generation, fact checking, or clinical decision support. The candidate set and snippet budget are held constant within each comparison. Gold evidence never enters a ranking function.
+This is a known-document evidence-selection experiment, not open-domain retrieval, answer generation, fact checking, or decision support. The candidate set and snippet budget are held constant within each comparison. Gold evidence never enters a ranking function.
 
 ## Metrics
 
@@ -15,7 +15,7 @@ This is a known-document evidence-selection experiment, not open-domain retrieva
 - **SciFact evidence-sentence recall**: fraction of annotated evidence sentence indices included in the selected set.
 - **SciFact complete coverage**: whether all annotated evidence sentence indices are in the selected set.
 
-The BGE-versus-BM25 intervals in `results/primary_results.json` are percentile paired cluster-bootstrap intervals from 20,000 resamples, seed `20260907`. QASPER resamples papers; SciFact resamples claims. Point estimates are observation-weighted. The release preserves the aggregate numeric artifact; it does not redistribute row-level benchmark-derived outputs.
+The BGE-versus-BM25 intervals in `results/primary_results.json` are percentile paired cluster-bootstrap intervals from 20,000 resamples, seed `20260907`. QASPER resamples papers; SciFact resamples claims. Point estimates are observation-weighted. The release preserves the aggregate numeric artifact; it does not redistribute row-level benchmark-derived outputs. The manuscript's later unit-sensitivity checks are post hoc analyses derived from the official public records and frozen neural rankings.
 
 ## Execution order
 

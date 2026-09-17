@@ -2,7 +2,7 @@
 
 ## Released by this repository
 
-This repository releases source code, synthetic-format examples, an editable figure deck, a model-provenance manifest, and aggregate derived results used by the manuscript. `results/primary_results.json` contains no source-document text, questions, claims, individual evidence labels, or patient-level records.
+This repository releases source code, synthetic-format examples, a figure deck, a model-provenance manifest, and aggregate derived results used by the manuscript. `results/primary_results.json` contains no source-document text, questions, claims, or individual evidence labels.
 
 ## Obtained from original public providers
 
@@ -21,4 +21,4 @@ The project does not redistribute QASPER papers, questions, evidence annotations
 
 ## Study boundary
 
-The datasets provide human-provided evidence annotations for evaluating whether a short, ranked view makes those annotations visible. They do not establish medical truth, clinical evidence sufficiency, field-level scientific bias, or user outcomes.
+The datasets provide human-provided evidence annotations for evaluating whether a short, ranked view makes those annotations visible. They do not establish evidence sufficiency, field-level scientific bias, or user outcomes.

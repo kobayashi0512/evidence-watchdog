@@ -176,7 +176,7 @@ def main() -> None:
         "label_counts": dict(Counter(r["label"] for r in out_rows)),
         "means": {k: avg(k) for k in ["lead1_recall", "lead2_recall", "lexical2_recall", "lexical4_recall", "semantic2_recall", "semantic4_recall"]},
         "complete_rates": {k: avg(k) for k in ["lead2_complete", "lexical2_complete", "lexical4_complete", "semantic2_complete", "semantic4_complete"]},
-        "interpretation": "Document-local sentence evidence recovery only; no open-domain retrieval, claim-veracity, causal, or clinical inference.",
+        "interpretation": "Document-local sentence evidence recovery only; no open-domain retrieval, claim-veracity, causal, or decision inference.",
         "rows": out_rows,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

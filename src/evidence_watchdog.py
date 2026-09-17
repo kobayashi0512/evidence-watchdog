@@ -4,9 +4,11 @@
 Input JSON:
   {"query": "...", "passages": ["...", "..."], "title": "optional"}
 
-The tool ranks passages under a fixed reading budget and flags when the
-highest-ranked passages lie outside a conventional short view (the first two
-passages).  It does not assess truth, evidence sufficiency, or clinical merit.
+The tool ranks passages under a fixed selection budget and returns
+source-context descriptors: whether selected material lies outside a
+conventional leading view and whether it contains caution-related language.
+They are structural source information, not alerts: the tool does not predict
+omissions or assess truth, evidence sufficiency, or study quality.
 """
 from __future__ import annotations
 
@@ -83,30 +85,32 @@ def main() -> None:
     chosen = order[: min(args.budget, len(order))]
     outside = [i for i in chosen if i >= args.short_view]
     caution = [i for i in chosen if CAUTION.search(passages[i])]
-    reasons = []
+    descriptors = []
     if outside:
-        reasons.append("高相关证据位于默认短视图之外，应回看原文。")
+        descriptors.append("Selected material lies outside the leading source view.")
     if caution:
-        reasons.append("所选证据含否定、限制或反转性措辞，应避免只依据主结论。")
-    if not reasons:
-        reasons.append("固定预算内未触发位置或措辞告警；这不等于证据充分或结论为真。")
+        descriptors.append("Selected material contains caution-related wording.")
+    if not descriptors:
+        descriptors.append("No predefined source-context descriptor was present in the selected material.")
 
     result = {
         "title": payload.get("title"), "query": query, "model": str(args.model), "backend": args.backend,
         "budget": args.budget, "short_view_size": args.short_view,
         "top_evidence": [
             {"rank": rank_i + 1, "passage_index": idx, "score": scores[idx], "outside_short_view": idx >= args.short_view,
-             "caution_cues": CAUTION.findall(passages[idx]), "text": passages[idx]}
+             "caution_terms": CAUTION.findall(passages[idx]), "text": passages[idx]}
             for rank_i, idx in enumerate(chosen)
         ],
-        "watchdog": {
-            "review_required": bool(outside or caution), "reasons": reasons,
-            "scope": "Evidence-position and caution-cue flag only; not a truth, causality, quality, or clinical assessment.",
+        "source_context": {
+            "selected_outside_leading_view": bool(outside),
+            "selected_with_caution_language": bool(caution),
+            "descriptors": descriptors,
+            "scope": "Source-context descriptors identify structural display properties only; they do not predict omissions or assess truth, causality, evidence sufficiency, or study quality.",
         },
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(json.dumps({"review_required": result["watchdog"]["review_required"], "top_indices": chosen, "reasons": reasons}, ensure_ascii=False, indent=2))
+    print(json.dumps({"top_indices": chosen, "source_context_descriptors": descriptors}, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":

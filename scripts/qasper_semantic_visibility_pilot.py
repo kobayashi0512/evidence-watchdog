@@ -181,7 +181,7 @@ def main() -> None:
         "n_papers": len({r["paper_id"] for r in out_rows}),
         "gold_answer_counts": dict(Counter(str(r["gold_yes_no"]).lower() for r in out_rows)),
         "means": {k: avg(k) for k in ["abstract_evidence_f1", "lead2_evidence_f1", "lexical2_evidence_f1", "lexical4_evidence_f1", "semantic2_evidence_f1", "semantic4_evidence_f1", "semantic_top1_max_evidence_f1"]},
-        "interpretation": "BGE is evaluated only as a paragraph relevance ranker. Results are evidence-retrieval diagnostics on a small held-out pilot, not answer accuracy, causal evidence, or a clinical claim.",
+        "interpretation": "BGE is evaluated only as a paragraph relevance ranker. Results are evidence-selection diagnostics on a small held-out pilot, not answer accuracy, causal evidence, or decision-support evidence.",
         "rows": out_rows,
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)

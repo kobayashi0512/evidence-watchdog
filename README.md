@@ -1,10 +1,10 @@
 # Evidence Watchdog
 
-**Evidence Watchdog** is a reproducibility package for the fixed-budget evidence-visibility study, *AI Makes More Scientific Evidence Visible but Leaves Some Evidence Out of Sight*.
+**Evidence Watchdog** is a reproducibility package for the fixed-budget evidence-coverage study, *Evidence Coverage Under Fixed Selection Budgets: An Empirical Audit on QASPER and SciFact*.
 
-Scientific reading interfaces often replace a full document with a few ranked snippets. This package asks a narrow, auditable question: **under the same small snippet budget, how much human-annotated evidence remains visible?** It does not estimate truth, causality, study quality, or clinical benefit.
+Scientific reading interfaces often replace a full document with a few ranked snippets. This package asks a narrow, auditable question: **under the same small snippet budget, how much human-annotated evidence is selected?** It does not estimate truth, causality, study quality, answer correctness, or user outcomes.
 
-The included prototype ranks candidate passages, returns the original text and its source position, and raises a review cue when selected material sits outside the conventional short view or contains caution-related language. The cue is intentionally heuristic: it is a prompt to inspect the source, not a detector of a particular omitted sentence.
+The included prototype ranks candidate passages, returns the original text and its source position, and reports source-context descriptors when selected material sits outside a leading view or contains caution-related language. These descriptors identify structural display properties only. They are not alerts, omission predictions, or detectors of a particular omitted sentence.
 
 ## What is released
 
@@ -21,14 +21,14 @@ The repository deliberately does **not** redistribute QASPER, SciFact, or third-
 
 ## Main paper results
 
-All numbers below are retrospective, development-partition evidence-visibility measurements; they are not clinical, causal, or answer-accuracy results.
+All numbers below are retrospective, development-partition evidence-selection measurements; they are not causal, answer-accuracy, or user-outcome results.
 
 | Dataset and fixed budget | BGE | Document-local BM25 | Paired BGE gain (95% cluster-bootstrap interval) |
 |---|---:|---:|---:|
 | QASPER, top-4 paragraphs | 0.562 evidence-matching score | 0.396 | +0.165 [0.083, 0.250] |
 | SciFact, top-4 sentences | 0.788 evidence-sentence recall | 0.663 | +0.125 [0.078, 0.171] |
 
-On SciFact, complete coverage rose from 64.2% with document-local BM25 to 77.2% with BGE at four sentences; 22.8% of annotated evidence sets still remained incomplete. Thus, a higher ranking score does not certify evidence sufficiency.
+On SciFact, complete coverage rose from 64.2% with document-local BM25 to 77.2% with BGE at four sentences; 22.8% of annotated evidence sets still remained incomplete. This is an evidence-set statistic, not a count of independent questions or a measure of whether a claim has any usable evidence. Thus, a higher ranking score does not certify evidence sufficiency.
 
 ## Quick start
 
@@ -55,7 +55,7 @@ Use `--models all-MiniLM-L6-v2` with the fetcher and `--backend embedding` for t
 
 ## Data provenance and access
 
-No approval-controlled, clinical, patient, or participant-level data are used in this release.
+No approval-controlled or participant-level data are used in this release.
 
 - **QASPER v0.3**: information-seeking questions and paragraph-level evidence anchored in research papers. Official project: [allenai/qasper-led-baseline](https://github.com/allenai/qasper-led-baseline). The original v0.3 train/dev archive is retrieved by the supplied script from `https://qasper-dataset.s3.us-west-2.amazonaws.com/qasper-train-dev-v0.3.tgz`.
 - **SciFact**: scientific claims, abstracts, and sentence-level rationale annotations. Official project: [allenai/scifact](https://github.com/allenai/scifact). The supplied script retrieves its official release archive from `https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz`.

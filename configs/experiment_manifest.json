@@ -1,6 +1,6 @@
 {
   "study": "Evidence Watchdog fixed-budget evidence-visibility audit",
-  "evaluation_scope": "known-document candidate selection; no open-domain retrieval, answer generation, clinical inference, or model fine-tuning",
+  "evaluation_scope": "known-document candidate selection; no open-domain retrieval, answer generation, decision inference, or model fine-tuning",
   "datasets": {
     "qasper_development": {
       "unit": "question within paper",
